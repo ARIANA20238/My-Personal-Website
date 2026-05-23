@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arian Key C. Garcia - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            /* Rich Purple Gradient Background */
+            background: linear-gradient(135deg, #3b2d54 0%, #1a162b 100%);
+            color: #2d263b; /* Deep dark purple/gray text for reading on white cards */
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+        }
+
+        /* --- NAVIGATION BAR --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(26, 22, 43, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 10px;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        nav a {
+            color: rgba(255, 255, 255, 0.75);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 5px 12px;
+            margin: 0 4px;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav a:hover, nav a.active {
+            color: #ffb499; /* Soft Peach Accent */
+            border-bottom: 2px solid #ffb499;
+        }
+
+        /* --- CONTAINER CONTROL --- */
+        section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 20px 60px 20px;
+        }
+
+        /* White Card Structure with smooth rounding */
+        .card {
+            background: #ffffff;
+            border-radius: 30px;
+            width: 100%;
+            max-width: 380px;
+            padding: 35px 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        /* --- HOME SECTION --- */
+        .profile-img-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 25px auto;
+            border-radius: 50%;
+            padding: 4px;
+            background: #ffb499; /* Peach Glow ring */
+            box-shadow: 0 0 20px rgba(255, 180, 153, 0.6);
+            overflow: hidden;
+        }
+
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1a162b;
+        }
+
+        .subtitle {
+            color: #7b599a; /* Pastel Purple Subtitle */
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .description {
+            color: #554e60;
+            font-size: 14px;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            color: #7b599a; /* Purple Section Titles */
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .info-list {
+            text-align: left;
+            list-style: none;
+        }
+
+        .info-list li {
+            margin-bottom: 18px;
+            font-size: 15px;
+            color: #443e4f;
+            line-height: 1.5;
+            border-bottom: 1px dashed rgba(123, 89, 154, 0.15);
+            padding-bottom: 8px;
+        }
+
+        .info-list strong {
+            color: #1a162b;
+            font-weight: 600;
+            display: inline-block;
+            width: 100px;
+        }
+
+        /* --- EDUCATION SECTION --- */
+        .edu-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .edu-item {
+            background: #fcfaff; /* Soft Purple-tinted White */
+            border-left: 4px solid #ffb499; /* Peach strip indicator */
+            border-radius: 12px;
+            padding: 15px;
+            text-align: left;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        .edu-stage {
+            color: #7b599a;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .edu-school {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 4px;
+            color: #1a162b;
+        }
+
+        .edu-year {
+            font-size: 12px;
+            color: #8c8599;
+        }
+
+        /* --- SKILLS SECTION --- */
+        .skills-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: #fcfaff;
+            border-radius: 20px;
+            padding: 15px;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        /* Highlighting frame effect from original photo */
+        .skill-card.featured {
+            border: 2px solid #ffb499; /* Highlighted in Peach */
+            box-shadow: 0 0 15px rgba(255, 180, 153, 0.3);
+        }
+
+        .skill-img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+
+        .skill-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a162b;
+        }
+
+        /* --- GALLERY SECTION --- */
+        .gallery-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+
+        .gallery-img {
+            width: 160px;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 16px;
+            flex-shrink: 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .gallery-img.side {
+            width: 35px;
+            opacity: 0.35;
+            border-radius: 10px;
+        }
+
+        /* --- CONTACT SECTION --- */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 22px;
+            margin-top: 25px;
+        }
+
+        .social-icons a {
+            color: #7b599a;
+            font-size: 30px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #ffb499;
+            transform: translateY(-3px);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #1a162b;
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="card">
+            <div class="profile-img-container">
+                <img src="profile.jpeg" alt="Arian Key C. Garcia">
+            </div>
+            <h1>Arian Key C. Garcia</h1>
+            <div class="subtitle">BSIT Student</div>
+            <p class="description">
+                Hello! I'm a 20 years old BSIT Student at Eastern Visayas State University Carigara Campus. I am passionate about leveraging technology to solve real world problems with a strong foundation in time management and critical thinking.
+            </p>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="card">
+            <div class="section-title">About Me</div>
+            <ul class="info-list">
+                <li><strong>Full Name:</strong> Arian Key C. Garcia</li>
+                <li><strong>Age:</strong> 20 Years Old</li>
+                <li><strong>Birthday:</strong> November 6, 2005</li>
+                <li><strong>Address:</strong> San Isidro, Carigara, Leyte</li>
+                <li><strong>Hobbies:</strong> Reading Books, Cooking, Hiking</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="card">
+            <div class="section-title">Educational Background</div>
+            <div class="edu-timeline">
+                <div class="edu-item">
+                    <div class="edu-stage">Elementary</div>
+                    <div class="edu-school">Camansi Elementary School</div>
+                    <div class="edu-year">School Year: 2011 - 2016</div>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-stage">Junior High School</div>
+                    <div class="edu-school">Jugaban National Vocational School</div>
+                    <div class="edu-year">School Year: 2017 - 2020</div>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-stage">Senior High School</div>
+                    <div class="edu-school">Jugaban National Vocational School</div>
+                    <div class="edu-year">School Year: 2020 - 2022</div>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-stage">College</div>
+                    <div class="edu-school">Eastern Visayas State University - Carigara Campus</div>
+                    <div class="edu-year">2025 - Present</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <section id="skills">
+        <div class="card">
+            <div class="section-title">Skills & Talents</div>
+            <div class="skills-grid">
+                
+                <div class="skill-card">
+                    <div class="skill-icon">⏱️</div>
+                    <div class="skill-name">Time Management</div>
+                    <div class="skill-desc">Efficiently organize and prioritize tasks to maximize productivity.</div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">🧩</div>
+                    <div class="skill-name">Organizing</div>
+                    <div class="skill-desc">I keep my workflow structured to ensure every project is completed on time.</div>
+                </div>
+                
+                <div class="skill-card featured">
+                    <div class="skill-icon">💡</div>
+                    <div class="skill-name">Analyzing</div>
+                    <div class="skill-desc">I use a critical eye to evaluate information and solve programming logic issues.</div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">🗣️</div>
+                    <div class="skill-name">Collaboration</div>
+                    <div class="skill-desc">I value teamwork and clear communication to achieve shared goals.</div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">👨‍🍳</div>
+                    <div class="skill-name">Cooking</div>
+                    <div class="skill-desc">I apply the same focus and creativity to the kitchen as I do my projects.</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <div class="card">
+            <div class="section-title">Gallery</div>
+            <div class="gallery-wrapper">
+                <img src="side1.jpeg" alt="Left View" class="gallery-img side">
+                <img src="center.jpeg" alt="Center View" class="gallery-img">
+                <img src="side2.png" alt="Right View" class="gallery-img side">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="card">
+            <div class="section-title" style="margin-bottom: 15px;">You Can Catch Me</div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/share/1DhcRga5ym/" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/yanyy_um?igsh=MWxndTN4Nm1lNG5zbQ==" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@key66279?_r=1&_t=ZS-96bDNdn2ItE" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="mailto:ariankeygarcia@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 Arian Key Garcia Portfolio
+    </footer>
+
+    <script>
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+```
